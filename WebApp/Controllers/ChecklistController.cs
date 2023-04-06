@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApp.Dto;
 
 namespace WebApp.Controllers
 {
@@ -13,13 +14,13 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateChecklist([FromBody] string name)
+        public IActionResult CreateChecklist([FromBody] CreateChecklistDto dto)
         {
             return Ok();
         }
 
-        [HttpDelete]
-        public IActionResult CreateChecklist([FromBody] int id)
+        [HttpDelete("{checklistId}")]
+        public IActionResult DeleteChecklist(int checklistId)
         {
             return Ok();
         }

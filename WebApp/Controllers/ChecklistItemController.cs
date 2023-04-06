@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApp.Dto;
 
 namespace WebApp.Controllers
 {
@@ -13,7 +14,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost("{checklistId}/item")]
-        public IActionResult CreateNewChecklistItem(int checklistId)
+        public IActionResult CreateNewChecklistItem([FromBody] CreateChecklistItemDto dto, int checklistId)
         {
             return Ok();
         }
@@ -37,7 +38,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPut("{checklistId}/item/rename/{checklistItemId}")]
-        public IActionResult RenameItem(int checklistId, int checklistItemId)
+        public IActionResult RenameItem([FromBody] RenameChecklistItemDto dto, int checklistId, int checklistItemId)
         {
             return Ok();
         }
