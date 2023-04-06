@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApp.Model;
 
 namespace WebApp.Data
 {
@@ -10,5 +11,12 @@ namespace WebApp.Data
         }
 
         public DbSet<WebApp.Model.AuthData> AuthData { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AuthData>().ToTable("AuthData");
+            modelBuilder.Entity<Checklist>().ToTable("Checklist");
+            modelBuilder.Entity<ChecklistItem>().ToTable("ChecklistItem");
+        }
     }
 }
